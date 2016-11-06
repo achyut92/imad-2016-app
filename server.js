@@ -16,7 +16,7 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
-app.username(bodyParser.json());
+app.use(bodyParser.json());
 app.use(session({
 	secret: 'randomSecrectValue',
 	cookie: {maxAge: 1000*60*24*30}
@@ -136,7 +136,7 @@ app.get('/check-login', function(req,res){
 app.get('/logout', function(req,res){
 	delete req.session.auth;
 	res.send('You are logged out.');
-}
+});
 
 app.get('/test-db',function(err,res){
    
