@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto = require('crypto');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 
 var Pool = require('pg').Pool;
@@ -16,6 +17,10 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 app.username(bodyParser.json());
+app.use(session({
+	secret: 'randomSecrectValue',
+	cookie: {maxAge: 1000*60*24*30}
+}));
 
 var pool = new Pool(config); 
 
@@ -87,10 +92,51 @@ app.post('/create-user', function(req,res){
 		if(err){
            res.status(500).send(err.toString());
        }else{
-           res.send(JSON.stringify(result.rows));
+           res.send('User created successfully '+username);
        }
    });
 });
+
+app.post('/login', function(req,res){
+
+	var username = req.body.username;
+	var password = req.body.password;
+
+	pool.query('SELECT * FROM "user" WHERE username=$1',[username], function(err,result){
+		if(err){
+           res.status(500).send(err.toString());
+       }else{
+       		if (result.rows.length === 0) {
+       			res.status(403).send('username/password i s invalid.');
+       		}else{
+       			var dbString = result.rows[0].password;
+       			var salt = dbString.split('$')[2];
+       			var hashedPassword = hash(password,salt);
+       			if (hashedPassword === dbString) {
+
+       				req.session.auth = {userId: result.rows[0].id};
+       				res.send('Credentials correct');
+
+       			}else{
+       				res.status(403).send('username/password i s invalid.');
+       			}
+       		}
+       }
+   });
+});
+
+app.get('/check-login', function(req,res){
+	if(req.session && req.session.auth && req.session.auth.userId){
+		res.send('You are logged in '+req.session.auth.userId.toString());
+	}else{
+		res.send('You are not logged in.');
+	}
+});
+
+app.get('/logout', function(req,res){
+	delete req.session.auth;
+	res.send('You are logged out.');
+}
 
 app.get('/test-db',function(err,res){
    
