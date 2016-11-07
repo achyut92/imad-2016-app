@@ -27,6 +27,10 @@ body {
     font-family: sans-serif;
 }
 
+.container a{ 
+    color: yellow;
+}
+
 .profile{ 
     margin: 20px;
     color: blue;
