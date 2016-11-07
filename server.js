@@ -188,7 +188,7 @@ app.get('/ui/main.js', function (req, res) {
 
 app.get('/allArticles', function(req,res){
    var articles = [];
-   pool.query('SELECT title FROM article',function(err,result){
+   pool.query('SELECT heading FROM "article"',function(err,result){
        	if(err){
            res.status(500).send(err.toString());
        }else{
@@ -198,10 +198,11 @@ app.get('/allArticles', function(req,res){
            	for(var i=0;i<result.rows.length;i++){
            	    articles.push(result.rows[i]);
            	}
+           	res.send(articles);
            }
        }
    });
-   res.send(articles);
+   
 });
 
 app.get('/articles/:articleName', function (req, res) {
