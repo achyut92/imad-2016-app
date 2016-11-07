@@ -48,7 +48,7 @@ h4{
     font-weight: bold;
 }
 
-#articles li{
+#articles li a{
     color: red;
     list-style:none;
 }
