@@ -37,3 +37,7 @@ body {
     color: yellow;
     font-weight: bold;
 }
+
+#articles li{
+    color: red;
+}
