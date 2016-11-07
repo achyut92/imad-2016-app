@@ -14,6 +14,7 @@ submit.onclick = function(){
 			if (request.status === 200) {
 				console.log('user logged in');
 				alert('Logged in successfully');
+				location.reload();
 			}else if (request.status === 403){
 				alert('Username/Password is Invalid!');
 			}else if (request.status === 500){
