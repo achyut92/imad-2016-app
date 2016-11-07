@@ -17,6 +17,11 @@ body {
     font-weight: bold;
 }
 
+h4{
+    font-weight: bold;
+    color: red;
+}
+
 .img-medium {
     height: 200px;
 }
