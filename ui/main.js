@@ -61,7 +61,8 @@ function checkLogin(){
                 console.log(this.responseText);
                 loadLoggedInUser(this.responseText);
             }else{
-                
+                request.open('GET', '/', true);
+                request.send(null);
             }
         }
     };
