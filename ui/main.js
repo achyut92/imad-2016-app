@@ -76,3 +76,5 @@ function loadLoggedInUser(username){
         <a href="/logout">Logout</a>
     `;
 }
+
+checkLogin();
