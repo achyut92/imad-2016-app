@@ -90,6 +90,7 @@ function loadArticleTitles(articles){
     for (i = 0; i < articles.length; i++) { 
         articleTitles+=`<li><a href="/artilce/${articles.title}">${articles.heading}</a></li>`;
     }
+    return articleTitles;
 }
 
 function loadLoggedInUser(username){
