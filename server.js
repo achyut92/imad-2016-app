@@ -188,7 +188,7 @@ app.get('/ui/main.js', function (req, res) {
 
 app.get('/allArticles', function(req,res){
    var articles = [];
-   pool.query('SELECT heading FROM "article"',function(err,result){
+   pool.query('SELECT heading,title FROM "article"',function(err,result){
        	if(err){
            res.status(500).send(err.toString());
        }else{
