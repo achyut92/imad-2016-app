@@ -96,7 +96,7 @@ function loadArticleTitles(articles){
 function loadLoggedInUser(username){
     var logoutArea = document.getElementById('login_area');
     var loginForm = document.getElementById('login-form');
-    loginForm.style.display = 'none';
+    //loginForm.style.display = 'none';
     
     loginForm.innerHTML = getArticleTitles();
     logoutArea.innerHTML = `
