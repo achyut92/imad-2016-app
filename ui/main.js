@@ -60,7 +60,7 @@ function checkLogin(){
             if (request.status === 200) {
                 console.log(this.responseText);
                 loadLoggedInUser(this.responseText);
-                window.location = "/";
+                
             }else{
                 window.location = "/";
             }
