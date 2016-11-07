@@ -63,6 +63,7 @@ function checkLogin(){
             if (request.status === 200) {
                 console.log(this.responseText);
                 loadLoggedInUser(this.responseText);
+                getArticleTitles();
             }else{
             
             }
@@ -105,5 +106,5 @@ function loadLoggedInUser(username){
     `;
 }
 checkLogin();
-getArticleTitles();
+
 
