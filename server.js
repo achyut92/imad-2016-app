@@ -165,8 +165,8 @@ app.get('/test-db',function(err,res){
 
 app.get('/', function (req, res) {
     if(req.session && req.session.auth && req.session.auth.userId){
-		res.send({user:req.session.auth.userId.toString()});
-		res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+		res.render(path.join(__dirname, 'ui', 'index.html'),{user:req.session.auth.userId.toString()});
+		//res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 	}else{
 	    res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 	}
