@@ -72,7 +72,23 @@ function checkLogin(){
 }
 
 function getArticleTitles(){
-    
+     request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                loadArticleTitles(this.responseText);
+            }else{
+            
+            }
+        }
+     };
+     request.open('GET', '/allArticles', true);
+     request.send(null);
+}
+
+function loadArticleTitles(articles){
+    for (i = 0; i < articles.length; i++) { 
+    "<li>""</li>";
+}
 }
 
 function loadLoggedInUser(username){
