@@ -62,8 +62,9 @@ function checkLogin(){
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 console.log(this.responseText);
+                 getArticleTitles();
                 loadLoggedInUser(this.responseText);
-                getArticleTitles();
+               
             }else{
             
             }
