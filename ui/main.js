@@ -87,12 +87,10 @@ function getArticleTitles(){
 
 function loadArticleTitles(articles){
     var articleTitles = ``;
-    console.log(articles.length);
-    console.log(articles[0]);
-    //for (var i = 0; i < articles.length; i++) { 
-   //     articleTitles+=`<li><a href="/artilce/${articles[i].title}">${articles[i].heading}</a></li>`;
-   // }
-    //return articleTitles;
+    for (var i = 0; i < articles.length; i++) { 
+        articleTitles+=`<li><a href="/artilce/${articles[i].title}">${articles[i].heading}</a></li>`;
+    }
+   return articleTitles;
 }
 
 function loadLoggedInUser(username){
