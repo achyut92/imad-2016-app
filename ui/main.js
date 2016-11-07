@@ -104,5 +104,6 @@ function loadLoggedInUser(username){
         <a href="/logout">Logout</a>
     `;
 }
-getArticleTitles();
 checkLogin();
+getArticleTitles();
+
