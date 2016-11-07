@@ -71,14 +71,15 @@ function checkLogin(){
     request.open('GET', '/check-login', true);
     request.send(null);
 }
-
+var articleTitles = ``;
 function getArticleTitles(){
      request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-                loadArticleTitles(JSON.parse(this.responseText));
-            }else{
-            
+                var articles = JSON.parse(this.responseText);
+                for (var i = 0; i < articles.length; i++) { 
+                        articleTitles+=`<li><a href="/artilces/${articles[i].title}">${articles[i].heading}</a></li>`;
+                    }
             }
         }
      };
@@ -86,12 +87,10 @@ function getArticleTitles(){
      request.send(null);
 }
 
-  var articleTitles = ``;
+  
 function loadArticleTitles(articles){
   
-    for (var i = 0; i < articles.length; i++) { 
-        articleTitles+=`<li><a href="/artilces/${articles[i].title}">${articles[i].heading}</a></li>`;
-    }
+    
 }
 
 function loadLoggedInUser(username){
