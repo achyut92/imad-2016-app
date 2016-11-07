@@ -86,8 +86,9 @@ function getArticleTitles(){
 }
 
 function loadArticleTitles(articles){
+    var articleTitles = ``;
     for (i = 0; i < articles.length; i++) { 
-        `<li><a href="/artilce/${articles.title}">${articles.heading}</a></li>`;
+        articleTitles+=`<li><a href="/artilce/${articles.title}">${articles.heading}</a></li>`;
     }
 }
 
