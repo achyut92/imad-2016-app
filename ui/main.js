@@ -73,7 +73,7 @@ function checkLogin(){
 
 function loadLoggedInUser(username){
     var loginArea = document.getElementById('login_area');
-    document.getElementById('register-btn').style.display = 'none';
+    document.getElementById('login-form').style.display = 'none';
     loginArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
         <a href="/logout">Logout</a>
