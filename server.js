@@ -186,7 +186,7 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
-app.get('/allArtciles', function(req,res){
+app.get('/allArticles', function(req,res){
    var articles = [];
    pool.query('SELECT title FROM article',function(err,result){
        	if(err){
