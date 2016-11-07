@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     margin: 30px;
-    background-image: url('https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/antique.jpg');
+    background-image: url("background.jpg");
     background-size: cover;
 }
 
@@ -24,7 +24,7 @@ body {
 
 .container{ 
     margin: 20px auto;
-    color: white;
+    color: #b3b300;
     font-family: sans-serif;
 }
 
