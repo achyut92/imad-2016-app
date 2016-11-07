@@ -3,7 +3,6 @@ console.log('Loaded!');
 
 var submit = document.getElementById('submit-btn');
 var register = document.getElementById('register-btn');
-var bool = true;
 
 submit.onclick = function(){
     
@@ -75,21 +74,30 @@ function checkLogin(){
     request.open('GET', '/check-login', true);
     request.send(null);
 }
-var articleTitles = ``;
-function getArticleTitles(){
+function loadArticles() {
+        // Check if the user is already logged in
     var request = new XMLHttpRequest();
-     request.onreadystatechange = function () {
+    request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
+            var articles = document.getElementById('articles');
             if (request.status === 200) {
-                var articles = JSON.parse(this.responseText);
-                for (var i = 0; i < articles.length; i++) { 
-                        articleTitles+=`<li><a href="/artilces/${articles[i].title}">${articles[i].heading}</a></li>`;
-                    }
+                var content = '<ul>';
+                var articleData = JSON.parse(this.responseText);
+                for (var i=0; i< articleData.length; i++) {
+                    content += `<li>
+                    <a href="/articles/${articleData[i].title}">${articleData[i].heading}</a>
+                    (${articleData[i].date.split('T')[0]})</li>`;
+                }
+                content += "</ul>"
+                articles.innerHTML = content;
+            } else {
+                articles.innerHTML('Oops! Could not load all articles!')
             }
         }
-     };
-     request.open('GET', '/allArticles', true);
-     request.send(null);
+    };
+    
+    request.open('GET', '/get-articles', true);
+    request.send(null);
 }
 
 
@@ -105,9 +113,6 @@ function loadLoggedInUser(username){
     `;
 }
 checkLogin();
-if(bool === true){
-    getArticleTitles();
-    bool=false;
-}
+loadArticles();
 
 
