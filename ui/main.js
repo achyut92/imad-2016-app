@@ -3,8 +3,7 @@ console.log('Loaded!');
 
 var submit = document.getElementById('submit-btn');
 var register = document.getElementById('register-btn');
-
-
+var bool = true;
 
 submit.onclick = function(){
     
@@ -93,11 +92,6 @@ function getArticleTitles(){
      request.send(null);
 }
 
-  
-function loadArticleTitles(articles){
-  
-    
-}
 
 function loadLoggedInUser(username){
     var logoutArea = document.getElementById('login_area');
@@ -111,5 +105,9 @@ function loadLoggedInUser(username){
     `;
 }
 checkLogin();
+if(bool === true){
+    getArticleTitles();
+    bool=false;
+}
 
 
