@@ -75,7 +75,7 @@ function getArticleTitles(){
      request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-                loadArticleTitles(this.responseText);
+                loadArticleTitles(JSON.stringify(this.responseText));
             }else{
             
             }
