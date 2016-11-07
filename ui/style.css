@@ -17,10 +17,6 @@ body {
     font-weight: bold;
 }
 
-h4{
-    font-weight: bold;
-    color: red;
-}
 
 .img-medium {
     height: 200px;
@@ -40,6 +36,11 @@ h4{
     margin: 20px;
     color: blue;
     font-family: sans-serif;
+}
+
+h4{
+    font-weight: bold;
+    color: red;
 }
 
 .nav li a{
