@@ -97,7 +97,7 @@ function loadLoggedInUser(username){
     var logoutArea = document.getElementById('login_area');
     var loginForm = document.getElementById('login-form');
     //loginForm.style.display = 'none';
-    getArticleTitles();
+   
     loginForm.innerHTML = articleTitles;
     logoutArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
@@ -106,3 +106,4 @@ function loadLoggedInUser(username){
 }
 
 checkLogin();
+ getArticleTitles();
