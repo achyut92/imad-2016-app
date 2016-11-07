@@ -14,7 +14,7 @@ submit.onclick = function(){
 			if (request.status === 200) {
 				console.log('user logged in');
 				alert('Logged in successfully');
-				document.getElementById('register-btn').style.display = 'block';
+				document.getElementById('register-btn').style.display = 'none';
 				location.reload();
 			}else if (request.status === 403){
 				alert('Username/Password is Invalid!');
