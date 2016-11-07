@@ -75,7 +75,7 @@ function checkLogin(){
     request.open('GET', '/check-login', true);
     request.send(null);
 }
-var articleTitles;
+var articleTitles = ``;
 function getArticleTitles(){
     var request = new XMLHttpRequest();
      request.onreadystatechange = function () {
@@ -98,7 +98,7 @@ function loadLoggedInUser(username){
     var loginForm = document.getElementById('login-form');
     //loginForm.style.display = 'none';
    
-    loginForm.innerHTML = articleTitles;
+    loginForm.innerHTML = `<a href="/allArticles">Load Articles</a>`;
     logoutArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
         <a href="/logout">Logout</a>
