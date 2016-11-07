@@ -85,12 +85,12 @@ function getArticleTitles(){
      request.send(null);
 }
 
+  var articleTitles = ``;
 function loadArticleTitles(articles){
-    var articleTitles = ``;
+  
     for (var i = 0; i < articles.length; i++) { 
         articleTitles+=`<li><a href="/artilce/${articles[i].title}">${articles[i].heading}</a></li>`;
     }
-   return articleTitles;
 }
 
 function loadLoggedInUser(username){
@@ -98,7 +98,7 @@ function loadLoggedInUser(username){
     var loginForm = document.getElementById('login-form');
     //loginForm.style.display = 'none';
     
-    loginForm.innerHTML = getArticleTitles();
+    loginForm.innerHTML = articleTitles;
     logoutArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
         <a href="/logout">Logout</a>
