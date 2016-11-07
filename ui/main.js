@@ -71,10 +71,17 @@ function checkLogin(){
     request.send(null);
 }
 
+function getArticleTitles(){
+    
+}
+
 function loadLoggedInUser(username){
-    var loginArea = document.getElementById('login_area');
-    document.getElementById('login-form').style.display = 'none';
-    loginArea.innerHTML = `
+    var logoutArea = document.getElementById('login_area');
+    var loginForm = document.getElementById('login-form');
+    loginForm.style.display = 'none';
+    
+    loginForm.innerHTML = ``;
+    logoutArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
         <a href="/logout">Logout</a>
     `;
