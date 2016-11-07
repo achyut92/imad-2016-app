@@ -13,6 +13,7 @@ submit.onclick = function(){
 		if(request.readyState === XMLHttpRequest.DONE){
 			if (request.status === 200) {
 				console.log('user logged in');
+				 getArticleTitles();
 				alert('Logged in successfully');
 				
 				location.reload();
@@ -106,4 +107,3 @@ function loadLoggedInUser(username){
 }
 
 checkLogin();
- getArticleTitles();
