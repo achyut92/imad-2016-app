@@ -104,9 +104,8 @@ function loadArticles() {
 function loadLoggedInUser(username){
     var logoutArea = document.getElementById('login_area');
     var loginForm = document.getElementById('login-form');
-    //loginForm.style.display = 'none';
+    loginForm.style.display = 'none';
    
-    loginForm.innerHTML = `<a href="/allArticles">Load Articles</a>`;
     logoutArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
         <a href="/logout">Logout</a>
