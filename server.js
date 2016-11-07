@@ -22,6 +22,8 @@ app.use(session({
 	cookie: {maxAge: 1000*60*24*30}
 }));
 
+
+
 var pool = new Pool(config); 
 
 
@@ -95,6 +97,18 @@ app.post('/create-user', function(req,res){
            res.send('User created successfully '+username);
        }
    });
+});
+
+app.get('/education',function(req,res){
+	res.sendFile(path.join(__dirname+'/ui/education.html'));
+});
+
+app.get('/project',function(req,res){
+	res.sendFile(path.join(__dirname+'/ui/project.html'));
+});
+
+app.get('/contact',function(req,res){
+	res.sendFile(path.join(__dirname+'/ui/contact.html'));
 });
 
 app.post('/login', function(req,res){
