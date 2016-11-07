@@ -4,9 +4,11 @@ console.log('Loaded!');
 var submit = document.getElementById('submit-btn');
 var register = document.getElementById('register-btn');
 
-var request = new XMLHttpRequest();
+
 
 submit.onclick = function(){
+    
+    var request = new XMLHttpRequest();
 
 	request.onreadystatechange = function () {
 
@@ -36,6 +38,7 @@ submit.onclick = function(){
 };
 
 register.onclick = function(){
+    var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         	if(request.readyState === XMLHttpRequest.DONE){
 			if (request.status === 200) {
@@ -58,6 +61,7 @@ register.onclick = function(){
 };
 
 function checkLogin(){
+    var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
@@ -74,6 +78,7 @@ function checkLogin(){
 }
 var articleTitles = ``;
 function getArticleTitles(){
+    var request = new XMLHttpRequest();
      request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
