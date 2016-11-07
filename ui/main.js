@@ -87,8 +87,8 @@ function getArticleTitles(){
 
 function loadArticleTitles(articles){
     for (i = 0; i < articles.length; i++) { 
-    "<li>""</li>";
-}
+        `<li><a href="/artilce/${artilces.title}">${articles.heading}</a></li>`;
+    }
 }
 
 function loadLoggedInUser(username){
@@ -96,7 +96,7 @@ function loadLoggedInUser(username){
     var loginForm = document.getElementById('login-form');
     loginForm.style.display = 'none';
     
-    loginForm.innerHTML = ``;
+    loginForm.innerHTML = getArticleTitles();
     logoutArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
         <a href="/logout">Logout</a>
