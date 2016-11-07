@@ -186,23 +186,16 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
-app.get('/allArticles', function(req,res){
-   var articles = [];
-   pool.query('SELECT heading,title FROM "article"',function(err,result){
-       	if(err){
-           res.status(500).send(err.toString());
-       }else{
-           if(result.rows.length === 0){
-           	res.status(404).send('No Articles Found.');
-           }else{
-           	for(var i=0;i<result.rows.length;i++){
-           	    articles.push(result.rows[i]);
-           	}
-           	res.send(articles);
-           }
-       }
+app.get('/get-articles', function (req, res) {
+   // make a select request
+   // return a response with the results
+   pool.query('SELECT * FROM article ORDER BY date DESC', function (err, result) {
+      if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          res.send(JSON.stringify(result.rows));
+      }
    });
-   
 });
 
 app.get('/articles/:articleName', function (req, res) {
