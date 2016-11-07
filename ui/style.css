@@ -38,17 +38,16 @@ body {
     font-family: sans-serif;
 }
 
-h4{
-    font-weight: bold;
-    color: red;
-}
 
 .nav li a{
     color: yellow;
     font-weight: bold;
 }
 
-#articles li a{
-    color: red;
+#articles li{
     list-style:none;
+}
+
+#articles li a{
+   color: red;
 }
