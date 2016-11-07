@@ -14,7 +14,7 @@ submit.onclick = function(){
 			if (request.status === 200) {
 				console.log('user logged in');
 				alert('Logged in successfully');
-				document.getElementById('register-btn').style.display = 'none';
+				
 				location.reload();
 			}else if (request.status === 403){
 				alert('Username/Password is Invalid!');
@@ -73,6 +73,7 @@ function checkLogin(){
 
 function loadLoggedInUser(username){
     var loginArea = document.getElementById('login_area');
+    document.getElementById('register-btn').style.display = 'none';
     loginArea.innerHTML = `
         <h6> Hi <i>${username}</i></h6>
         <a href="/logout">Logout</a>
