@@ -75,7 +75,7 @@ function checkLogin(){
     request.open('GET', '/check-login', true);
     request.send(null);
 }
-var articleTitles = ``;
+var articleTitles;
 function getArticleTitles(){
     var request = new XMLHttpRequest();
      request.onreadystatechange = function () {
