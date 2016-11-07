@@ -24,7 +24,7 @@ submit.onclick = function(){
 	var username = document.getElementById('username').value;
 	var password = document.getElementById('password').value;
 
-	request.open('POST','http://localhost:8080/login',true);   //achyut92.imad.hasura-app.io
+	request.open('POST','http://achyut92.imad.hasura-app.io/login',true);   //achyut92.imad.hasura-app.io
 	request.setRequestHeader('Content-Type','application/json');
 	request.send(JSON.stringify({username:username,password:password}));
 };
