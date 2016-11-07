@@ -22,10 +22,6 @@ app.use(session({
 	cookie: {maxAge: 1000*60*24*30}
 }));
 
-app.set('views',path.join(__dirname,'ui'));
-app.set('view engine','ejs');
-app.engine('html',require('ejs').renderFile);
-
 
 var pool = new Pool(config); 
 
@@ -167,14 +163,9 @@ app.get('/test-db',function(err,res){
 });
 
 app.get('/', function (req, res) {
-    if(req.session && req.session.auth && req.session.auth.userId){
-		res.render(path.join('index.html'),{user:req.session.auth.userId.toString()});
-		//res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-	}else{
+		
 	    res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-	}
-  
-  
+	
 });
 
 app.get('/ui/style.css', function (req, res) {
