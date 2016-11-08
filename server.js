@@ -56,10 +56,10 @@ function createTemplate(data){
     <hr>
     <h4>Comments</h4>
     
-    <div id="comments">
+    <div id="comments" class="col-sm-5">
       <center>Loading Comments..</center>
     </div>
-    <div id="comment_form"></div>
+    <div id="comment_form" class="col-sm-5"></div>
 	</div>
      
      <script type="text/javascript" src="/ui/article.js"></script>
