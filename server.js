@@ -56,12 +56,12 @@ function createTemplate(data){
 		</div>
     <hr>
     <h4>Comments</h4>
-    <div class="row">
-    <div id="comments" class="col-sm-5">
+    
+    <div id="comments" class="row col-sm-5">
       <center>Loading Comments..</center>
     </div>
-    <div id="comment_form" class="col-sm-3 pull-right"></div>
-	</div>
+    <div id="comment_form" class="row col-sm-5"></div>
+	
     </div>
      <script type="text/javascript" src="/ui/article.js"></script>
 	</body>
@@ -70,20 +70,8 @@ function createTemplate(data){
 return htmlTemplate;
 }
 
-var counter = 0;
 
-app.get('/counter', function(req,res) {
-	counter = counter + 1;
-	res.send(counter.toString());
-});
 
-var names = [];
-app.get('/submit-name', function(req,res){
-
-	var name = req.query.name;
-	names.push(name);
-	res.send(JSON.stringify(names));
-});
 
 function hash(input,salt){
 	var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
