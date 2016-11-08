@@ -60,7 +60,7 @@ function createTemplate(data){
     <div id="comments" class="col-sm-5">
       <center>Loading Comments..</center>
     </div>
-    <div id="comment_form" class="col-sm-5"></div>
+    <div id="comment_form" class="col-sm-3 pull-right"></div>
 	</div>
     </div>
      <script type="text/javascript" src="/ui/article.js"></script>
