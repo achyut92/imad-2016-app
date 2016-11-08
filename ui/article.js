@@ -9,9 +9,9 @@ function loadCommentForm(){
 		<br>
 		<input type="submit" id="submit" value="Submit"/>`;
 
-		documet.getElementById('comment_form').innerHTML = commentForm;
+		document.getElementById('comment_form').innerHTML = commentForm;
 
-		var submit = documet.getElementById('submit');
+		var submit = document.getElementById('submit');
 
         submit.onclick = function(){
 		    
@@ -20,7 +20,7 @@ function loadCommentForm(){
 			request.onreadystatechange = function () {
 				if(request.readyState === XMLHttpRequest.DONE){
 					if (request.status === 200) {
-						documet.getElementById('comment_text').value = '';
+						document.getElementById('comment_text').value = '';
 						loadComments();
 					}else {
 						alert("Error! Could submit your comments.Please try later.");
@@ -64,7 +64,7 @@ function loadComments(){
 	var request = new XMLHttpRequest();
 
 			request.onreadystatechange = function () {
-				var comments = documet.getElementById('comments');
+				var comments = document.getElementById('comments');
 				if(request.readyState === XMLHttpRequest.DONE){
 					if (request.status === 200) {
 						var content = '';
