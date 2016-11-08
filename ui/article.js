@@ -12,7 +12,8 @@ function loadCommentForm(){
 
 		var submit = documet.getElementById('submit');
 
-		submit.onclick() = function(){
+        submit.onclick = function(){
+		    
 			var request = new XMLHttpRequest();
 
 			request.onreadystatechange = function () {
@@ -32,9 +33,9 @@ function loadCommentForm(){
 			request.open('POST','/submit-comment/'+currentArticleTitle,true);   //achyut92.imad.hasura-app.io
 			request.setRequestHeader('Content-Type','application/json');
 			request.send(JSON.stringify({comment:comment}));
-			submit.value='Submitting..'
+			submit.value='Submitting..';
 
-		};
+		}
 }
 
 function checkLogin(){
@@ -74,12 +75,14 @@ function loadComments(){
 								<div class="commenter">
 									${commentsData[i].username} - ${time.toLocaleTimeString()} on ${time.toLocaleDateString()}
 								</div>
-								</div>`
+								</div>`;
 						}
 						comments.innerHTML = content;
 					}else{
-						res.send('Oops! Could not load comments.')
+						res.send('Oops! Could not load comments.');
 					}
+				}
+			};
 
 	request.open('GET', '/get-comments/'+currentArticleTitle, true);
 	request.send(null);
