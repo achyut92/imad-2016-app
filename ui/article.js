@@ -22,8 +22,10 @@ function loadCommentForm(){
 					if (request.status === 200) {
 						document.getElementById('comment_text').value = '';
 						loadComments();
-					}else {
-						alert("Error! Could submit your comments.Please try later.");
+					}else if(request.status === 403){
+						alert("Please write a comment.");
+					}else{
+					    	alert("Error! Could submit your comments.Please try later.");
 					}
 					submit.value='Submit';
 				}
