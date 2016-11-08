@@ -1,4 +1,5 @@
 
+console.log('article.js');
 var currentArticleTitle = window.location.pathname.split('/')[2];
 
 function loadCommentForm(){
