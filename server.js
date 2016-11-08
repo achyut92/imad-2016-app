@@ -224,6 +224,13 @@ app.get('/get-comments/:articleName', function(req,res){
 });
 
 app.post('/submit-comment/:articleName', function(req,res){
+    
+    var comment = req.body.comment;
+    
+    if(comment === ''){
+        res.status(403).send();
+        return;
+    }
 
   if(req.session && req.session.auth && req.session.auth.userId){
     pool.query('SELECT * FROM "article" WHERE title=$1',[req.params.articleName],function(err,result){
@@ -234,7 +241,7 @@ app.post('/submit-comment/:articleName', function(req,res){
           res.send('Article not Found.');
         }else{
           var articleId = result.rows[0].id;
-          pool.query('INSERT INTO "comment" (comment,user_id,article_id) VALUES ($1,$2,$3)',[req.body.comment,req.session.auth.userId,articleId],function(err,result){
+          pool.query('INSERT INTO "comment" (comment,user_id,article_id) VALUES ($1,$2,$3)',[comment,req.session.auth.userId,articleId],function(err,result){
             if(err){
               res.status(500).send(err.toString());
             }else{
