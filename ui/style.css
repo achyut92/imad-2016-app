@@ -2,6 +2,7 @@ body {
     font-family: sans-serif;
     margin: 30px;
     background-image: url("background.jpg"); 
+    background-repeat: initial;
     background-size: cover;
 }
 
