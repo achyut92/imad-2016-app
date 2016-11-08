@@ -31,13 +31,14 @@ function createTemplate(data){
 	var title = data.title;
 	var date = data.date;
 	var content = data.content;
+	var heading = data.heading;
 
 	var htmlTemplate = `<html>
 	<head>
 		<title>${title}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link href="/ui/style.css" rel="stylesheet" />
-		 <script type="text/javascript" src="/ui/article.js"></script>
+		 
 	</head>
 	<body>
 		<div class="container">
@@ -59,7 +60,8 @@ function createTemplate(data){
       <center>Loading Comments..</center>
     </div>
 		</div>
-   
+     
+     <script type="text/javascript" src="/ui/article.js"></script>
 	</body>
 </html>`;
 
@@ -188,6 +190,10 @@ app.get('/ui/style.css', function (req, res) {
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
+
+app.get('/ui/article.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'article.js'));
 });
 
 app.get('/ui/main.js', function (req, res) {
