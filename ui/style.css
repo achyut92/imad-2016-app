@@ -56,7 +56,8 @@ a{
     margin-left: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
-    background-color: #4d94ff;
+    color: chartreuse;
+    font-weight: bold;
 }
 
 .commenter {
