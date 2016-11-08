@@ -66,8 +66,6 @@ function checkLogin(){
                 console.log(this.responseText);
                 loadLoggedInUser(this.responseText);
                
-            }else{
-            
             }
         }
     };

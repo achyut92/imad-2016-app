@@ -51,7 +51,14 @@ function createTemplate(data){
 		<div>
 			${content}
 		</div>
+    <hr>
+    <h4>Comments</h4>
+    <div id="comment_form"></div>
+    <div id="comments">
+      <center>Loading Comments..</center>
+    </div>
 		</div>
+    <script type="text/javascript" src="/ui/article.js"/>
 	</body>
 </html>`;
 
@@ -213,11 +220,44 @@ app.get('/articles/:articleName', function (req, res) {
            }
        }
 	});
-
-  
-
 });
 
+app.get('/get-comments/:articleName', function(req,res){
+  pool.query('SELECT comment.*,"user".username FROM article,"user",comment WHERE article.title=$1 AND article.id=comment.article_id AND comment.user_id="user".id ORDER BY comment.timestamp DESC',[req.params.articleName],function(err,result){
+    if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          res.send(JSON.stringify(result.rows));
+      }
+  });
+});
+
+app.post('/submit-comment/:articleName', function(req,res){
+
+  if(req.session && req.session.auth && req.session.auth.userId){
+    pool.query('SELECT * FROM "article" WHERE title=$1',[req.params.articleName],function(err,result){
+      if(err){
+        res.status(500).send(err.toString());
+      }else{
+        if(result.rows.length === 0){
+          res.send('Article not Found.');
+        }else{
+          var articleId = result.rows[0].id;
+          pool.query('INSERT INTO "comment" (comment,user_id,article_id) VALUES ($1,$2,$3)',[req.body.comment,req.session.auth.userId,articleId],function(err,result){
+            if(err){
+              res.status(500).send(err.toString());
+            }else{
+              res.status(200).send('Comment Saved.');
+            }
+          });
+        }
+      }
+    });
+  }else{
+    res.status(403).send('Only logged in user can comment');
+  }
+
+});
 
 
 
