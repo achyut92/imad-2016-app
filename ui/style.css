@@ -56,12 +56,12 @@ a{
     margin-left: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
+    background-color: lightblue;
 }
 
 .commenter {
     font-style: italic;
     font-size: 0.8em;
-    background-color: lightblue;
 }
 
 #comment_form {
