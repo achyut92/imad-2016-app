@@ -22,4 +22,4 @@ feedbackBtn.onclick = function() {
 	request.open('POST','http://achyut92.imad.hasura-app.io/submit-feedback',true);   //achyut92.imad.hasura-app.io
 	request.setRequestHeader('Content-Type','application/json');
 	request.send(JSON.stringify({name:name,email:email,message:message}));
-}
+};
