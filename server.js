@@ -102,6 +102,26 @@ app.post('/create-user', function(req,res){
    });
 });
 
+app.post('/submit-feedback',function(req,res){
+  var name = req.body.name;
+  var email = req.body.email;
+  var message = req.body.message;
+
+  if(name === '' || email === '' || message === ''){
+      res.status(403).send();
+      return;
+    }
+
+    pool.query('INSERT INTO "contact" (name,email,message) VALUES ($1, $2, $3)',[name,email,message], function(err,result){
+    if(err){
+           res.status(500).send(err.toString());
+       }else{
+           res.send('Feedback stored.');
+       }
+   });
+
+});
+
 app.get('/education',function(req,res){
 	res.sendFile(path.join(__dirname+'/ui/education.html'));
 });
