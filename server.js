@@ -41,7 +41,7 @@ function createTemplate(data){
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	</head>
 	<body>
-	<button class="btn btn-info btn-sm" type="button"><a href="/">Home</a></button>
+	<button class="btn btn-info btn-sm" type="button"><span class="glyphicon glyphicon-home"></span><a href="/"> Home</a></button>
 		<div class="container">
 			<div>
 		
