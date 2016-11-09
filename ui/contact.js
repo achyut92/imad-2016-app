@@ -2,17 +2,15 @@ var feedbackBtn = document.getElementById('feedback-btn');
 
 feedbackBtn.onclick = function() {
 	
-	var name = document.getElementById('name').value;
-	var email = document.getElementById('email').value;
-	var message = document.getElementById('message').value;
+	
 	
 	var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         	if(request.readyState === XMLHttpRequest.DONE){
 			if (request.status === 200) {
-			    name.value='';
-			    email.value='';
-			    message.value='';
+			    document.getElementById('name').value='';
+			    document.getElementById('email').value='';
+			    document.getElementById('message').value='';
 				alert('Thank you for your feedback.');
 			}else if (request.status === 403){
 				alert('Please fill all the details.');
@@ -22,7 +20,9 @@ feedbackBtn.onclick = function() {
 
 		}
     };
-    
+    var name = document.getElementById('name').value;
+	var email = document.getElementById('email').value;
+	var message = document.getElementById('message').value;
 
 	request.open('POST','http://achyut92.imad.hasura-app.io/submit-feedback',true);   //achyut92.imad.hasura-app.io
 	request.setRequestHeader('Content-Type','application/json');
