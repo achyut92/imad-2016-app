@@ -7,7 +7,7 @@ function loadCommentForm(){
 		<h4>Comments</h4>
 		<textarea id="comment_text" type="text" rows="5" cols="50" placeholder="Write your comment here.." id="comment"></textarea>
 		<br>
-		<input type="submit" id="submit" value="Submit"/>`;
+		<input type="submit" id="submit" value="Submit" class="btn btn-primary"/>`;
 
 		document.getElementById('comment_form').innerHTML = commentForm;
 
