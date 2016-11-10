@@ -18,7 +18,7 @@ submit.onclick = function(){
 				
 				location.reload();
 			}else if (request.status === 403){
-				alert('Username/Password is Invalid!');
+				alert('Username/Password is Invalid! Or Please Register.');
 			}else if (request.status === 500){
 				alert('Something went wrong with our server.');
 			}
@@ -40,10 +40,10 @@ register.onclick = function(){
     request.onreadystatechange = function(){
         	if(request.readyState === XMLHttpRequest.DONE){
 			if (request.status === 200) {
-				console.log('User registered');
+				console.log('Thank you for registering.');
 				alert('Registered successfully');
 			}else if (request.status === 403){
-				alert('Registeration unsuccessfully.');
+				alert('Registeration Unsuccessful.');
 			}else if (request.status === 500){
 				alert('Something went wrong with our server.');
 			}
