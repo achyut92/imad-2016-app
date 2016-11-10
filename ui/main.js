@@ -13,12 +13,12 @@ submit.onclick = function(){
 		if(request.readyState === XMLHttpRequest.DONE){
 			if (request.status === 200) {
 				console.log('user logged in');
-			
+			    location.reload();
 				alert('Logged in successfully');
-				
-				location.reload();
 			}else if (request.status === 403){
 				alert('Username/Password is Invalid! Or Please Register.');
+				document.getElementById('username').value='';
+	            document.getElementById('password').value='';
 			}else if (request.status === 500){
 				alert('Something went wrong with our server.');
 			}
@@ -41,9 +41,13 @@ register.onclick = function(){
         	if(request.readyState === XMLHttpRequest.DONE){
 			if (request.status === 200) {
 				console.log('Thank you for registering.');
-				alert('Registered successfully');
+				alert('Thank you for registering.');
+				document.getElementById('username').value='';
+	            document.getElementById('password').value='';
 			}else if (request.status === 403){
 				alert('Registeration Unsuccessful.');
+				document.getElementById('username').value='';
+	            document.getElementById('password').value='';
 			}else if (request.status === 500){
 				alert('Something went wrong with our server.');
 			}
