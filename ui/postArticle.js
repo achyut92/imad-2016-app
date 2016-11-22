@@ -9,11 +9,9 @@ submit_article.onclick = function(){
             if(request.readyState === XMLHttpRequest.DONE){
             if (request.status === 200) {
                 console.log('Thank you for the post.');
-                window.location.href='/';
+               
             }else if (request.status === 403){
-                document.getElementById('heading').value='';
-                document.getElementById('content').value='';
-                alert('Your post has not been saved.Please try again.');
+                alert('Please write a post to save.');
             }else if (request.status === 500){
                 alert('Something went wrong with our server.');
             }
