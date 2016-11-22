@@ -63,30 +63,7 @@ register.onclick = function(){
 	request.send(JSON.stringify({username:username,password:password}));
 };
 
-submit_article.onclick = function(){
-    var request = new XMLHttpRequest();
 
-    request.onreadystatechange = function(){
-            if(request.readyState === XMLHttpRequest.DONE){
-            if (request.status === 200) {
-                console.log('Thank you for the post.');
-                window.location.replace('/');
-            }else if (request.status === 403){
-                window.location.replace('/');
-            }else if (request.status === 500){
-                alert('Something went wrong with our server.');
-            }
-
-        }
-    };
-    
-    var heading = document.getElementById('heading').value;
-    var content = document.getElementById('content').value;
-
-    request.open('POST','http://achyut92.imad.hasura-app.io/post-article',true);   //achyut92.imad.hasura-app.io
-    request.setRequestHeader('Content-Type','application/json');
-    request.send(JSON.stringify({heading:heading,content:content}));  
-};
 
 function checkLogin(){
     var request = new XMLHttpRequest();
