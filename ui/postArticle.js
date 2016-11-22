@@ -11,7 +11,9 @@ submit_article.onclick = function(){
                 console.log('Thank you for the post.');
                 window.location.href='/';
             }else if (request.status === 403){
-                window.location.href='/';
+                document.getElementById('heading').value='';
+                document.getElementById('content').value='';
+                alert('Your post has not been saved.Please try again.');
             }else if (request.status === 500){
                 alert('Something went wrong with our server.');
             }
