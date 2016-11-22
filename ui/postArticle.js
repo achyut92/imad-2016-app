@@ -1,5 +1,5 @@
 
-
+console.log('post article js');
 var submit_article = document.getElementById('submit-article');
 
 submit_article.onclick = function(){
@@ -9,9 +9,9 @@ submit_article.onclick = function(){
             if(request.readyState === XMLHttpRequest.DONE){
             if (request.status === 200) {
                 console.log('Thank you for the post.');
-                window.location.replace('/');
+                window.location.href='/';
             }else if (request.status === 403){
-                window.location.replace('/');
+                window.location.href='/';
             }else if (request.status === 500){
                 alert('Something went wrong with our server.');
             }
