@@ -132,7 +132,7 @@ app.post('/post-article', function(req,res){
       return;
     }
 
-  var title = content.replace(/\s+/g, '-').toLowerCase();
+  var title = heading.replace(/\s+/g, '-').toLowerCase();
   var date = new Date();
 
   pool.query('INSERT INTO "article" (title,heading,date,content) VALUES ($1, $2, $3,$4)',[title,heading,date,content], function(err,result){
