@@ -139,7 +139,7 @@ app.post('/post-article', function(req,res){
     if(err){
            res.status(500).send(err.toString());
        }else{
-           res.status(200).send('Post stored.');
+           res.send();
        }
    });
 
