@@ -157,6 +157,10 @@ app.get('/contact',function(req,res){
 	res.sendFile(path.join(__dirname+'/ui/contact.html'));
 });
 
+app.get('/post-article',function(req,res){
+	res.sendFile(path.join(__dirname+'/ui/pos-article.html'));
+});
+
 app.post('/login', function(req,res){
 
 	var username = req.body.username;
