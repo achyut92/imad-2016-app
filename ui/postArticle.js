@@ -8,7 +8,7 @@ submit_article.onclick = function(){
     request.onreadystatechange = function(){
             if(request.readyState === XMLHttpRequest.DONE){
             if (request.status === 200) {
-                console.log('Thank you for the post.');
+                alert('Thank you for the post.');
                
             }else if (request.status === 403){
                 alert('Please write a post to save.');
