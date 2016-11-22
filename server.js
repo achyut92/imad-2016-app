@@ -158,7 +158,7 @@ app.get('/contact',function(req,res){
 });
 
 app.get('/post-article',function(req,res){
-	res.sendFile(path.join(__dirname+'/ui/pos-article.html'));
+	res.sendFile(path.join(__dirname+'/ui/post-article.html'));
 });
 
 app.post('/login', function(req,res){
