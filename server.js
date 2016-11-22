@@ -123,6 +123,28 @@ app.post('/submit-feedback',function(req,res){
 
 });
 
+app.post('/post-article', function(req,res){
+  var heading = req.body.heading;
+  var content = req.body.content;
+
+  if(heading === '' || content === ''){
+      res.status(403).send();
+      return;
+    }
+
+  var title = content.replace(/\s+/g, '-').toLowerCase();
+  var date = new Date();
+
+  pool.query('INSERT INTO "article" (title,heading,date,content) VALUES ($1, $2, $3,$4)',[title,heading,date,content], function(err,result){
+    if(err){
+           res.status(500).send(err.toString());
+       }else{
+           res.send('Post stored.');
+       }
+   });
+
+});
+
 app.get('/education',function(req,res){
 	res.sendFile(path.join(__dirname+'/ui/education.html'));
 });
