@@ -3,7 +3,7 @@ console.log('Loaded!');
 
 var submit = document.getElementById('submit-btn');
 var register = document.getElementById('register-btn');
-var submit-article = document.getElementById('submit-article');
+var submit_article = document.getElementById('submit-article');
 
 submit.onclick = function(){
     
@@ -63,7 +63,7 @@ register.onclick = function(){
 	request.send(JSON.stringify({username:username,password:password}));
 };
 
-submit-article.onclick = function(){
+submit_article.onclick = function(){
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function(){
